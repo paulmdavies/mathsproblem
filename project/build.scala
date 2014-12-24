@@ -9,7 +9,8 @@ object MathsProblemBuild extends Build
         settings = Defaults.defaultSettings ++ Seq(
             scalaVersion := "2.10.2",
             libraryDependencies ++= Seq(
-                "org.scalatest" %% "scalatest" % "2.2.1" % "test"
+                "org.scalatest" %% "scalatest" % "2.2.1" % "test",
+                "org.scalacheck" %% "scalacheck" % "1.12.1" % "test"
             )
         )
     )
