@@ -1,6 +1,8 @@
 mathsproblem
 ============
 
+image:https://travis-ci.org/paulmdavies/mathsproblem.svg["Build Status", link="https://travis-ci.org/paulmdavies/mathsproblem"]
+
 A tool designed to help children with mental maths.
 
 Currently under development.
