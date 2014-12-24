@@ -11,7 +11,7 @@ class ProblemGenerator private [mathsproblem] ( private [mathsproblem] lowerLimi
     
     private [mathsproblem] def numberInRange() = scala.util.Random.nextInt( upperLimit - lowerLimit ) + lowerLimit
     
-    def apply() : AdditionProblem =
+    def apply() : Problem =
     {
         val left = numberInRange()
         val right = numberInRange()

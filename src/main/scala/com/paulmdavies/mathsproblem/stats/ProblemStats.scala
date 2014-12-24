@@ -14,7 +14,7 @@ class ProblemStats private [stats] ()
     
     private [stats] def incorrectCount = count - correctCount
     
-    def add( problem : AdditionProblem, answer : Int ) : Unit =
+    def add( problem : Problem, answer : Int ) : Unit =
     {
         count += 1
         if ( problem.guess( answer ) ) correctCount += 1
