@@ -1,10 +1,16 @@
 package com.paulmdavies.mathsproblem
 
+import scala.util.Random
+
 object ProblemGenerator
 {
     private [mathsproblem] val LIMIT = 1000
     
     def apply( lowerLimit : Int, upperLimit : Int ) : ProblemGenerator = new ProblemGenerator( lowerLimit, upperLimit )
+    
+    private [mathsproblem] def problemConstructors : Seq[(Int,Int) => Problem] = Seq(AdditionProblem.apply _, SubtractionProblem.apply _)
+    
+    private [mathsproblem] def randomProblemConstructor : (Int, Int) => Problem = problemConstructors( Random.nextInt( problemConstructors.size ) )
 }
 
 class ProblemGenerator private [mathsproblem] ( private [mathsproblem] lowerLimit : Int, private [mathsproblem] upperLimit : Int )
@@ -19,6 +25,6 @@ class ProblemGenerator private [mathsproblem] ( private [mathsproblem] lowerLimi
     {
         val left = numberInRange()
         val right = numberInRange()
-        new AdditionProblem( left, right )
+        ProblemGenerator.randomProblemConstructor( left, right )
     }
 }
