@@ -8,7 +8,11 @@ object ProblemGenerator
     
     def apply( lowerLimit : Int, upperLimit : Int ) : ProblemGenerator = new ProblemGenerator( lowerLimit, upperLimit )
     
-    private [mathsproblem] def problemConstructors : Seq[(Int,Int) => Problem] = Seq(AdditionProblem.apply _, SubtractionProblem.apply _)
+    private [mathsproblem] def problemConstructors : Seq[(Int,Int) => Problem] = Seq(
+        AdditionProblem.apply _,
+        SubtractionProblem.apply _,
+        MultiplicationProblem.apply _
+    )
     
     private [mathsproblem] def randomProblemConstructor : (Int, Int) => Problem = problemConstructors( Random.nextInt( problemConstructors.size ) )
 }
