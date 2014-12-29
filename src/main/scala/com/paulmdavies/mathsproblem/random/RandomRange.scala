@@ -18,9 +18,9 @@ class RandomRange private [random] (
     private [random] val upperLimit : Int
 ) extends RandomRangeBase
 {
-    require( lowerLimit < upperLimit, "Lower limit must be less than upper limit" )
+    require( lowerLimit <= upperLimit, "Lower limit not be more than upper limit" )
     require( upperLimit <= RandomRange.UPPER_LIMIT )
     require( lowerLimit >= RandomRange.LOWER_LIMIT )
     
-    def apply() : Int = Random.nextInt( upperLimit - lowerLimit ) + lowerLimit
+    def apply() : Int = Random.nextInt( upperLimit - lowerLimit + 1 ) + lowerLimit
 }

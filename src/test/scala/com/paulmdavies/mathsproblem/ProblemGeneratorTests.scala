@@ -24,9 +24,9 @@ class ProblemGeneratorTests extends FlatSpec with Matchers with PropertyChecks
         } }
     }
     
-    it should "fail if the lower limit is greater than or equal to the upper limit" in
+    it should "fail if the lower limit is greater than the upper limit" in
     {
-        forAll { ( low : Int, high : Int ) => whenever ( !( low < high ) ) {
+        forAll { ( low : Int, high : Int ) => whenever ( low > high ) {
             an [IllegalArgumentException] should be thrownBy new ProblemGenerator( low, high )
         } }
     }
