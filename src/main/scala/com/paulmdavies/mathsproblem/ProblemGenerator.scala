@@ -1,7 +1,7 @@
 package com.paulmdavies.mathsproblem
 
 import scala.util.Random
-import com.paulmdavies.random._
+import com.paulmdavies.mathsproblem.random._
 
 object ProblemGenerator
 {
