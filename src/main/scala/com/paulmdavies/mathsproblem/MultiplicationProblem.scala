@@ -9,5 +9,5 @@ class MultiplicationProblem private [mathsproblem]( private [mathsproblem] val l
 {
     val answer = left * right
     
-    override def toString() : String = "%d x %d".format( left, right )
+    override def toString() : String = "%d ⨉  %d".format( left, right )
 }

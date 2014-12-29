@@ -24,7 +24,7 @@ class MultiplicationProblemTests extends FlatSpec with Matchers with PropertyChe
     it should "serialise correctly" in
     {
         forAll { ( left : Int, right : Int ) => {
-            MultiplicationProblem( left, right ).toString should equal( "%d x %d".format( left, right ) )
+            MultiplicationProblem( left, right ).toString should equal( "%d ⨉  %d".format( left, right ) )
         } }
     }
 }
