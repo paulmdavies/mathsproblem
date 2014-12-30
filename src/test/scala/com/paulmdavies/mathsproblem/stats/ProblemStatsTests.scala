@@ -42,4 +42,37 @@ class ProblemStatsTests extends FlatSpec with Matchers with PropertyChecks
             ps.incorrectCount should equal { incorrectCount + 1 }
         } }
     }
+    
+    it should "know the percentage of problems answered correctly" in
+    {
+        forAll{ ( left : Int, right : Int ) => {
+            val ps = ProblemStats()
+            ps.correctPercentage should equal ( 0 )
+            ps.add( AdditionProblem( left, right ), left + right )
+            ps.correctPercentage should equal ( 100 )
+            ps.add( AdditionProblem( left, right ), left + right + 1 )
+            ps.correctPercentage should equal ( 50 )
+        } }
+    }
+    
+    it should "know the percentage of problems answered incorrectly" in
+    {
+        forAll{ ( left : Int, right : Int ) => {
+        	val ps = ProblemStats()
+            ps.incorrectPercentage should equal ( 0 )
+            ps.add( AdditionProblem( left, right ), left + right )
+            ps.incorrectPercentage should equal ( 0 )
+            ps.add( AdditionProblem( left, right ), left + right + 1 )
+            ps.incorrectPercentage should equal ( 50 )
+        } }
+    }
+    
+    it should "report correctly" in
+    {
+        val ps = ProblemStats()
+        ps.report should equal ( "=== Report ===\n\nNo problems attempted" )
+        ps.add( AdditionProblem( 1, 1 ), 2 )
+        ps.add( AdditionProblem( 1, 1 ), 3 )
+        ps.report should equal ( "=== Report ===\n\nProblems attempted: 2\nCorrect: 1 (50.0%)\nIncorrect: 1 (50.0%)" )
+    }
 }
