@@ -24,7 +24,7 @@ class DivisionProblemTests extends FlatSpec with Matchers with PropertyChecks
     it should "serialise correctly" in
     {
         forAll { ( left : Int, right : Int ) => {
-            DivisionProblem( left, right ).toString should equal( "%d ÷ %d".format( left * right, right ) )
+            DivisionProblem( left, right ).toString should equal( "%d ÷ %d".format( left * right, left ) )
         } }
     }
 }

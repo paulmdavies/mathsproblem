@@ -9,5 +9,5 @@ class DivisionProblem private [mathsproblem]( private [mathsproblem] val left : 
 {
     val answer = right
     
-    override def toString() : String = "%d ÷ %d".format( left * right, right )
+    override def toString() : String = "%d ÷ %d".format( left * right, left )
 }
