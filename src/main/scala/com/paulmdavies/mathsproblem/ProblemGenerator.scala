@@ -10,7 +10,8 @@ object ProblemGenerator
     private [mathsproblem] def problemConstructors : Seq[(Int,Int) => Problem] = Seq(
         AdditionProblem.apply _,
         SubtractionProblem.apply _,
-        MultiplicationProblem.apply _
+        MultiplicationProblem.apply _,
+        DivisionProblem.apply _
     )
     
     private [mathsproblem] def randomProblemConstructor : (Int, Int) => Problem = problemConstructors( Random.nextInt( problemConstructors.size ) )
@@ -18,7 +19,7 @@ object ProblemGenerator
 
 class ProblemGenerator private [mathsproblem] ( private [mathsproblem] lowerLimit : Int, private [mathsproblem] upperLimit : Int )
 {
-    protected [mathsproblem] val randomRange = RandomRange( lowerLimit, upperLimit )
+    protected [mathsproblem] val randomRange = RandomRangeExcludingZero( lowerLimit, upperLimit )
     
     def apply() : Problem =
     {
